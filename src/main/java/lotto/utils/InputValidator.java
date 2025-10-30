@@ -19,7 +19,7 @@ public class InputValidator {
 
     private static void validateIsDivisibleByDivider(int budget) {
         if (budget % DIVIDER != 0) {
-            throw new IllegalArgumentException("구매 금액은 1000원 단위로 입력해야 합니다.");
+            throw new IllegalArgumentException("구매 금액은 " + DIVIDER + "원 단위로 입력해야 합니다.");
         }
     }
 }
