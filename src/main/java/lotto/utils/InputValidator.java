@@ -1,8 +1,9 @@
 package lotto.utils;
 
+import static lotto.utils.LottoConstants.LOTTO_PRICE;
+
 public class InputValidator {
 
-    final static int DIVIDER = 1000;
 
     public static void validateInputBudget(String budget) {
         validateIsNumeric(budget);
@@ -18,8 +19,8 @@ public class InputValidator {
     }
 
     private static void validateIsDivisibleByDivider(int budget) {
-        if (budget % DIVIDER != 0) {
-            throw new IllegalArgumentException("구매 금액은 " + DIVIDER + "원 단위로 입력해야 합니다.");
+        if (budget % LOTTO_PRICE != 0) {
+            throw new IllegalArgumentException("구매 금액은 " + LOTTO_PRICE + "원 단위로 입력해야 합니다.");
         }
     }
 }
