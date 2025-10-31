@@ -1,8 +1,8 @@
-package lotto.utils;
+package lotto.utils.validator;
 
-import static lotto.utils.LottoConstants.LOTTO_PRICE;
+import static lotto.utils.constant.LottoConstants.LOTTO_PRICE;
 
-public class InputValidator {
+public class BudgetValidator {
 
 
     public static void validateInputBudget(String budget) {
