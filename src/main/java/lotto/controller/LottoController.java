@@ -1,11 +1,11 @@
 package lotto.controller;
 
-import lotto.view.InputVIew;
+import lotto.view.BudgetInputVIew;
 
 public class LottoController {
 
     public void run() {
-        int budget = InputVIew.inputBudget();
-        System.out.println(budget);
+        int budget = BudgetInputVIew.inputBudget();
+
     }
 }
