@@ -1,7 +1,7 @@
 package lotto.controller;
 
 import java.util.List;
-import lotto.Lotto;
+import lotto.domain.Lotto;
 import lotto.domain.WinningNumber;
 import lotto.service.LottoService;
 import lotto.service.LottoServiceImpl;

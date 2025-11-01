@@ -5,7 +5,7 @@ import static lotto.utils.constant.LottoConstants.LOTTO_NUMBER_COUNT;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import java.util.stream.IntStream;
-import lotto.Lotto;
+import lotto.domain.Lotto;
 
 public class LottoServiceImpl implements LottoService {
 

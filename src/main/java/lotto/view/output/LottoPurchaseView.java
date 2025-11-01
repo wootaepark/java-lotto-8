@@ -3,7 +3,7 @@ package lotto.view.output;
 import static lotto.utils.constant.LottoConstants.LOTTO_PRICE;
 
 import java.util.List;
-import lotto.Lotto;
+import lotto.domain.Lotto;
 
 public class LottoPurchaseView {
 
