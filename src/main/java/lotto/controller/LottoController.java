@@ -1,6 +1,7 @@
 package lotto.controller;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import lotto.domain.Lotto;
 import lotto.domain.WinningNumber;
@@ -9,10 +10,12 @@ import lotto.service.LottoServiceImpl;
 import lotto.service.WinningNumberService;
 import lotto.service.WinningNumberServiceImpl;
 import lotto.utils.constant.ErrorPrefix;
+import lotto.utils.constant.Ranking;
 import lotto.view.input.BonusNumberInputView;
 import lotto.view.input.BudgetInputVIew;
 import lotto.view.input.MainNumberInputView;
 import lotto.view.output.LottoPurchaseView;
+import lotto.view.output.RoiVIew;
 import lotto.view.output.WinningAmountView;
 
 public class LottoController {
@@ -39,9 +42,13 @@ public class LottoController {
 
         // 당첨 통계 출력
 
-        WinningAmountView.displayWinningAmount(lottoService.getWinningRanks(lottos, winningNumber));
+        Map<Ranking, Long> rankingStats = WinningAmountView.getWinningAmount(
+                lottoService.getWinningRanks(lottos, winningNumber));
 
         // 수익률 출력
+        RoiVIew.displayRoiInfo(rankingStats, budget);
+
+
     }
 
     // 예산 입력 재시도 메서드

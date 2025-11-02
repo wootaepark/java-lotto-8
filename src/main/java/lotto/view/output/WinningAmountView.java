@@ -9,25 +9,44 @@ import lotto.utils.constant.Ranking;
 
 public class WinningAmountView {
 
-    public static void displayWinningAmount(List<Ranking> rankingList) {
-        System.out.println("\n당첨 통계 \n---");
-
-        Map<Ranking, Long> rankingCount = countRanking(rankingList);
-
-        // 모든 랭킹 순회하며 출력
-        for (Ranking ranking : Ranking.values()) {
-            long count = rankingCount.getOrDefault(ranking, 0L);
-            System.out.println(
-                    ranking.getMatchCount() + "개 일치 " + String.format("(%,d", ranking.getPrize()) + "원) - " + count
-                            + "개");
-        }
+    public static Map<Ranking, Long> getWinningAmount(List<Ranking> rankingList) {
+        Map<Ranking, Long> rankingStats = countRanking(rankingList);
+        String output = buildRankingStatsString(rankingStats);
+        System.out.print(output);
+        return rankingStats;
     }
 
+    // 1. 랭킹별 개수 집계
     private static Map<Ranking, Long> countRanking(List<Ranking> rankingList) {
         return rankingList.stream()
-                .filter(Objects::nonNull) // null 제거
+                .filter(Objects::nonNull)
                 .collect(Collectors.groupingBy(r -> r, LinkedHashMap::new, Collectors.counting()));
     }
 
+    // 2. 랭킹 통계 문자열 생성
+    private static String buildRankingStatsString(Map<Ranking, Long> rankingStats) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n당첨 통계 \n---\n");
+
+        Ranking[] displayOrder = {Ranking.FIFTH, Ranking.FOURTH, Ranking.THIRD, Ranking.SECOND, Ranking.FIRST};
+
+        for (Ranking ranking : displayOrder) {
+            long count = rankingStats.getOrDefault(ranking, 0L);
+            String bonusText = "";
+            if (ranking.isBonusMatch()) {
+                bonusText = ", 보너스 볼 일치";
+            }
+
+            sb.append(ranking.getMatchCount())
+                    .append("개 일치")
+                    .append(bonusText)
+                    .append(" (")
+                    .append(String.format("%,d", ranking.getPrize()))
+                    .append("원) - ")
+                    .append(count)
+                    .append("개\n");
+        }
+        return sb.toString();
+    }
 
 }
