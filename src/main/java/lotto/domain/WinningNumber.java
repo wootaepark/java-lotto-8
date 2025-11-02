@@ -16,9 +16,12 @@ public class WinningNumber {
     }
 
     private void validate(Set<Integer> mainNumbers, int bonusNumber) {
-        // 입력 후 조건 예외 처리 (나머지 조건은 InputValidator 에서 수행)
+        // 입력과는 별개로 객체 내부 유효성을 위한 validator
+        if (mainNumbers.size() != 6) {
+            throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");
+        }
         if (mainNumbers.contains(bonusNumber)) {
-            throw new IllegalArgumentException("보너스 번호와 당첨 번호는 중복 될 수 없습니다.");
+            throw new IllegalArgumentException("[ERROR] 보너스 번호와 당첨 번호는 중복 될 수 없습니다.");
         }
     }
 
