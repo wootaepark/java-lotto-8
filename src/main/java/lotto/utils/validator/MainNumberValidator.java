@@ -7,28 +7,28 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class WinningNumberValidator {
+public class MainNumberValidator {
 
     public static Set<Integer> validateInputWinningNumber(String input) {
-        // 1. ',' 구분 시 번호의 개수가 6개인지 
+        // 1. ',' 구분 시 번호의 개수가 6개인지
         // 2. 중복된 숫자가 없는지
         // 3. 각 번호의 범위가 올바른지
         // 4. 올바른 형태의 input 인지 (, 이외의 다른 문자)
 
-        List<Integer> winningNumbers = parseNumbers(input);
-        validateDuplicateNumbers(winningNumbers);
-        validateWinningNumbersCount(winningNumbers);
-        validateWinningNumbersRange(winningNumbers);
+        List<Integer> mainNumbers = parseNumbers(input);
+        validateDuplicateNumbers(mainNumbers);
+        validateMainNumbersCount(mainNumbers);
+        validateMainNumbersRange(mainNumbers);
 
         // List 로 검증 로직한 후 Set 형태로 안전하게 데이터 이동
-        return new HashSet<>(winningNumbers);
+        return new HashSet<>(mainNumbers);
 
 
     }
 
 
     // 1.
-    private static void validateWinningNumbersCount(List<Integer> numbers) {
+    private static void validateMainNumbersCount(List<Integer> numbers) {
         if (numbers.size() != LOTTO_NUMBER_COUNT) {
             throw new IllegalArgumentException("당첨 번호의 수는 " + LOTTO_NUMBER_COUNT + "개여야 합니다.");
         }
@@ -44,7 +44,7 @@ public class WinningNumberValidator {
 
 
     // 3.
-    private static void validateWinningNumbersRange(List<Integer> numbers) {
+    private static void validateMainNumbersRange(List<Integer> numbers) {
         boolean hasInvalid = numbers.stream()
                 .anyMatch(number -> number < 1 || number >= 45);
         if (hasInvalid) {

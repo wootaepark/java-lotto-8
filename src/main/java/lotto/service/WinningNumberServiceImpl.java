@@ -6,7 +6,7 @@ import lotto.domain.WinningNumber;
 public class WinningNumberServiceImpl implements WinningNumberService {
 
     @Override
-    public WinningNumber generateWinningNumber(Set<Integer> winningNumbers, int bonusNumber) {
-        return new WinningNumber(winningNumbers, bonusNumber);
+    public WinningNumber generateWinningNumber(Set<Integer> mainNumbers, int bonusNumber) {
+        return new WinningNumber(mainNumbers, bonusNumber);
     }
 }
