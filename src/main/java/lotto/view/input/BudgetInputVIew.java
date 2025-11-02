@@ -9,6 +9,7 @@ public class BudgetInputVIew {
         System.out.println("구입 금액을 입력해주세요");
         String budget = Console.readLine();
         BudgetValidator.validateInputBudget(budget);
+
         return Integer.parseInt(budget);
     }
 

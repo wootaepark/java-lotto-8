@@ -6,13 +6,14 @@ public class BudgetValidator {
 
 
     public static void validateInputBudget(String budget) {
-        validateIsNumeric(budget);
-        validateIsDivisibleByDivider(Integer.parseInt(budget));
+        int numericBudget = validateIsNumeric(budget);
+        validateIsNonNegative(numericBudget);
+        validateIsDivisibleByDivider(numericBudget);
     }
 
-    private static void validateIsNumeric(String budget) {
+    private static int validateIsNumeric(String budget) {
         try {
-            Integer.parseInt(budget);
+            return Integer.parseInt(budget);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("올바르지 않은 형태의 구매 금액 입니다.");
         }
@@ -21,6 +22,12 @@ public class BudgetValidator {
     private static void validateIsDivisibleByDivider(int budget) {
         if (budget % LOTTO_PRICE != 0) {
             throw new IllegalArgumentException("구매 금액은 " + LOTTO_PRICE + "원 단위로 입력해야 합니다.");
+        }
+    }
+
+    private static void validateIsNonNegative(int budget) {
+        if (budget < 0) {
+            throw new IllegalArgumentException("음수는 투자금액으로 입력이 불가능합니다.");
         }
     }
 }
