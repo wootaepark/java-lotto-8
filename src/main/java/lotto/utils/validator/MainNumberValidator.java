@@ -46,7 +46,7 @@ public class MainNumberValidator {
     // 3.
     private static void validateMainNumbersRange(List<Integer> numbers) {
         boolean hasInvalid = numbers.stream()
-                .anyMatch(number -> number < 1 || number >= 45);
+                .anyMatch(number -> number < 1 || number > 45);
         if (hasInvalid) {
             throw new IllegalArgumentException("당첨 번호는 1부터 45 사이의 숫자여야 합니다.");
         }

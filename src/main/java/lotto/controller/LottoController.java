@@ -13,6 +13,7 @@ import lotto.view.input.BonusNumberInputView;
 import lotto.view.input.BudgetInputVIew;
 import lotto.view.input.MainNumberInputView;
 import lotto.view.output.LottoPurchaseView;
+import lotto.view.output.WinningAmountView;
 
 public class LottoController {
 
@@ -37,6 +38,8 @@ public class LottoController {
         WinningNumber winningNumber = getWinningNumberWithRetry();
 
         // 당첨 통계 출력
+
+        WinningAmountView.displayWinningAmount(lottoService.getWinningRanks(lottos, winningNumber));
 
         // 수익률 출력
     }
