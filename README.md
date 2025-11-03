@@ -38,6 +38,46 @@
 
 ---
 
+## 디렉토리 구조
+
+```
+src
+└── main
+    └── java
+        └── lotto
+            ├── controller
+            │   └── LottoController
+            ├── domain
+            │   ├── Lotto
+            │   └── WinningNumber
+            ├── service
+            │   ├── LottoService
+            │   ├── LottoServiceImpl
+            │   ├── WinningNumberService
+            │   └── WinningNumberServiceImpl
+            ├── utils
+            │   ├── constant
+            │   │   ├── ErrorPrefix
+            │   │   ├── LottoConstants
+            │   │   └── Ranking
+            │   └── validator
+            │       ├── BonusNumberValidator
+            │       ├── BudgetValidator
+            │       └── MainNumberValidator
+            ├── view
+            │   ├── input
+            │   │   ├── BonusNumberInputView
+            │   │   ├── BudgetInputView
+            │   │   └── MainNumberInputView
+            │   └── output
+            │       ├── LottoPurchaseView
+            │       ├── RoiView
+            │       └── WinningAmountView
+            └── Application
+```
+
+---
+
 ## ✅ 프로그래밍 요구 사항 (최종 코딩 후 체크)
 
 - [ ] indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현하기
