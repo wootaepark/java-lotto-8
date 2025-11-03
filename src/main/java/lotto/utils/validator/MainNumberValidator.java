@@ -30,7 +30,7 @@ public class MainNumberValidator {
     // 1.
     private static void validateMainNumbersCount(List<Integer> numbers) {
         if (numbers.size() != LOTTO_NUMBER_COUNT.getValue()) {
-            throw new IllegalArgumentException("당첨 번호의 수는 " + LOTTO_NUMBER_COUNT + "개여야 합니다.");
+            throw new IllegalArgumentException("당첨 번호의 수는 " + LOTTO_NUMBER_COUNT.getValue() + "개여야 합니다.");
         }
     }
 
