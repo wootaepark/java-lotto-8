@@ -18,7 +18,7 @@ public class WinningNumber {
     private void validate(Set<Integer> mainNumbers, int bonusNumber) {
 
         if (mainNumbers.contains(bonusNumber)) {
-            throw new IllegalArgumentException("보너스 번호와 당첨 번호는 중복 될 수 없습니다.");
+            throw new IllegalArgumentException("[ERROR] 보너스 번호와 당첨 번호는 중복 될 수 없습니다.");
         }
     }
 
