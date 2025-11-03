@@ -8,7 +8,7 @@ import lotto.domain.Lotto;
 public class LottoPurchaseView {
 
     public static int displayLottoPurchaseCount(int budget) {
-        int purchaseCount = budget / LOTTO_PRICE;
+        int purchaseCount = budget / LOTTO_PRICE.getValue();
         System.out.println("\n" + purchaseCount + "개를 구매했습니다."); // 기능이 많아지면 service (비즈니스로직) 로 분리 가능
         return purchaseCount;
     }

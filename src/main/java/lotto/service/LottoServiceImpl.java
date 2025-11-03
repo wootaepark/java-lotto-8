@@ -16,7 +16,7 @@ public class LottoServiceImpl implements LottoService {
     public List<Lotto> generateRandomLottos(int purchasedLottoCount) {
         return IntStream.range(0, purchasedLottoCount)
                 .mapToObj(i -> new Lotto(
-                        Randoms.pickUniqueNumbersInRange(1, 45, LOTTO_NUMBER_COUNT)
+                        Randoms.pickUniqueNumbersInRange(1, 45, LOTTO_NUMBER_COUNT.getValue())
                                 .stream()
                                 .sorted()
                                 .toList())

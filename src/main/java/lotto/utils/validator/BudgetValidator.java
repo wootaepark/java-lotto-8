@@ -20,8 +20,8 @@ public class BudgetValidator {
     }
 
     private static void validateIsDivisibleByDivider(int budget) {
-        if (budget % LOTTO_PRICE != 0) {
-            throw new IllegalArgumentException("구매 금액은 " + LOTTO_PRICE + "원 단위로 입력해야 합니다.");
+        if (budget % LOTTO_PRICE.getValue() != 0) {
+            throw new IllegalArgumentException("구매 금액은 " + LOTTO_PRICE.getValue() + "원 단위로 입력해야 합니다.");
         }
     }
 
