@@ -25,28 +25,18 @@ public class WinningAmountView {
 
     // 2. 랭킹 통계 문자열 생성
     private static String buildRankingStatsString(Map<Ranking, Long> rankingStats) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("\n당첨 통계 \n---\n");
-
+        StringBuilder sb = new StringBuilder("\n당첨 통계 \n---\n");
         Ranking[] displayOrder = {Ranking.FIFTH, Ranking.FOURTH, Ranking.THIRD, Ranking.SECOND, Ranking.FIRST};
 
         for (Ranking ranking : displayOrder) {
             long count = rankingStats.getOrDefault(ranking, 0L);
-            String bonusText = "";
-            if (ranking.isBonusMatch()) {
-                bonusText = ", 보너스 볼 일치";
-            }
-
-            sb.append(ranking.getMatchCount())
-                    .append("개 일치")
-                    .append(bonusText)
-                    .append(" (")
-                    .append(String.format("%,d", ranking.getPrize()))
-                    .append("원) - ")
-                    .append(count)
-                    .append("개\n");
+            sb.append(ranking.getMatchCount()).append("개 일치")
+                    .append(ranking.isBonusMatch() ? ", 보너스 볼 일치" : "")
+                    .append(" (").append(String.format("%,d", ranking.getPrize())).append("원) - ")
+                    .append(count).append("개\n");
         }
         return sb.toString();
     }
+
 
 }
